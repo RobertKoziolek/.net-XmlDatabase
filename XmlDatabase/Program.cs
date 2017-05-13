@@ -15,21 +15,8 @@ namespace XmlDatabase
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
-            Database database = new Database("druga.xml");
+            Database database = new Database("pierwsza.xml");
 
-            Person person = new Person();
-            person.Name = "Adam";
-            person.Surname = "Pierwszy";
-            person.Age = 33;
-            person.City = "ZG";
-            person.Phone = "+48 665463807";
-
-            database.Add(person);
-
-            person.Name = "Maciej";
-            person.Phone = "+48 667876323";
-            person.Age = 24;
-            database.Add(person);
         }
     }
 }
