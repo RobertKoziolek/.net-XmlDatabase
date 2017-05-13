@@ -1,0 +1,8 @@
+c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\bin\Debug\XmlDatabase.exe.config
+c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\bin\Debug\XmlDatabase.exe
+c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\bin\Debug\XmlDatabase.pdb
+c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.csprojResolveAssemblyReference.cache
+c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.Properties.Resources.resources
+c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.csproj.GenerateResource.Cache
+c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.exe
+c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.pdb
