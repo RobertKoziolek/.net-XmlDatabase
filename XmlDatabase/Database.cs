@@ -8,6 +8,7 @@ namespace XmlDatabase
 {
     public class Database
     {
+        private const string INNER_DTD = "<!ELEMENT people (person*)>\n<!ELEMENT person (name,surname,age,city,phone)>\n<!ELEMENT name (#PCDATA)>\n<!ELEMENT surname (#PCDATA)>\n<!ELEMENT age (#PCDATA)>\n<!ELEMENT city (#PCDATA)>\n<!ELEMENT phone (#PCDATA)>";
         private readonly string _databasePath;
         private string  _xsdFilePath = null;
          
@@ -15,7 +16,7 @@ namespace XmlDatabase
 
         public Database(string databasePath)
         {
-            this._databasePath = databasePath;//TODO _databasePath validation
+            this._databasePath = databasePath; 
             if (File.Exists(databasePath) == false)
             {
                 InitializeDatabase();
@@ -29,7 +30,7 @@ namespace XmlDatabase
             XmlElement root = doc.DocumentElement;
             doc.InsertBefore(xmlDeclaration, root);
             XmlDocumentType doctype;
-            doctype = doc.CreateDocumentType("people", null, null, "<!ELEMENT people (person*)>\n<!ELEMENT person (name,surname,age,city,phone)>\n<!ELEMENT name (#PCDATA)>\n<!ELEMENT surname (#PCDATA)>\n<!ELEMENT age (#PCDATA)>\n<!ELEMENT city (#PCDATA)>\n<!ELEMENT phone (#PCDATA)>");
+            doctype = doc.CreateDocumentType("people", null, null, INNER_DTD);
             doc.AppendChild(doctype);
             XmlElement peopleElement = doc.CreateElement(("people")); 
             doc.AppendChild(peopleElement); 
@@ -43,24 +44,23 @@ namespace XmlDatabase
             xmlDocument.Load(fileStream);
             XmlElement personElement = xmlDocument.CreateElement("person");
 
-            addPersonElement("name", person.Name, xmlDocument, personElement);
-            addPersonElement("surname", person.Surname, xmlDocument, personElement);
-            addPersonElement("age", person.Age.ToString(), xmlDocument, personElement);
-            addPersonElement("city", person.City, xmlDocument, personElement);
-            addPersonElement("phone", person.Phone, xmlDocument, personElement);
+            personElement.AppendChild(CreateElement("name", person.Name, xmlDocument));
+            personElement.AppendChild(CreateElement("surname", person.Surname, xmlDocument));
+            personElement.AppendChild(CreateElement("age", person.Age.ToString(), xmlDocument));
+            personElement.AppendChild(CreateElement("city", person.City, xmlDocument));
+            personElement.AppendChild(CreateElement("phone", person.Phone, xmlDocument));
 
             xmlDocument.DocumentElement.AppendChild(personElement);
             fileStream.Close();
             xmlDocument.Save(_databasePath);
         }
 
-        private void addPersonElement(string elementName, string elementValue, XmlDocument xmlDocument, XmlElement personElement)
+        private XmlElement CreateElement(string elementName, string elementValue, XmlDocument xmlDocument )
         {
             XmlElement element = xmlDocument.CreateElement(elementName);
             XmlText text = xmlDocument.CreateTextNode(elementValue);
-            element.AppendChild(text);
-
-            personElement.AppendChild(element);
+            element.AppendChild(text); 
+            return element;
         }
 
         public Person FindByPhone(string phoneNumber)//TODO zmienic na kazde pole
@@ -94,23 +94,8 @@ namespace XmlDatabase
         }
 
         public string ValidateWithDtd( )
-        { 
-            StringBuilder xmlValMsg = new StringBuilder();
-
-            XmlTextReader reader = new XmlTextReader(_databasePath);
-            XmlValidatingReader validator = new XmlValidatingReader(reader);
-            validator.ValidationType = ValidationType.DTD; 
-            validator.ValidationEventHandler += new ValidationEventHandler(delegate (object sender, ValidationEventArgs args)
-            {
-                xmlValMsg.AppendLine(args.Message);
-            });
-            while (validator.Read()) ;
-            string result = xmlValMsg.ToString(); 
-            if (string.IsNullOrEmpty(result))
-            {
-                result = "XML jest poprawny z DTD";
-            } 
-            return result; 
+        {
+            return Validate(ValidationType.DTD);
         }
 
         public string ValidateWithXsd()
@@ -118,16 +103,22 @@ namespace XmlDatabase
             if (string.IsNullOrEmpty(_xsdFilePath) || !File.Exists(_xsdFilePath))
             {
                 return "Nie załadowano pliku XML Schema";
-            } 
+            }
+            return Validate(ValidationType.Schema);
+        }
+
+        private string Validate(ValidationType validationType)
+        {
             StringBuilder xmlValMsg = new StringBuilder();
-            
+
             XmlTextReader reader = new XmlTextReader(_databasePath);
             XmlValidatingReader validator = new XmlValidatingReader(reader);
-            validator.ValidationType = ValidationType.Schema;
-            XmlSchemaCollection schemas;
-            schemas = validator.Schemas;
-            schemas.Add(null, _xsdFilePath);
-            validator.ValidationEventHandler += new ValidationEventHandler(delegate (object sender, ValidationEventArgs args)
+            validator.ValidationType = validationType;
+            if (validationType == ValidationType.Schema)
+            { 
+                 validator.Schemas.Add(null, _xsdFilePath);
+            } 
+            validator.ValidationEventHandler += new ValidationEventHandler(delegate(object sender, ValidationEventArgs args)
             {
                 xmlValMsg.AppendLine(args.Message);
             });
@@ -135,7 +126,7 @@ namespace XmlDatabase
             string result = xmlValMsg.ToString();
             if (string.IsNullOrEmpty(result))
             {
-                result = "XML jest poprawny z XML Schema";
+                result = "Plik XML jest poprawny z "+validationType ;
             }
             return result;
         }
