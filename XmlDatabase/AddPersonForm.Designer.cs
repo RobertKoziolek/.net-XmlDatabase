@@ -47,20 +47,20 @@
             this.name.AutoSize = true;
             this.name.Location = new System.Drawing.Point(12, 9);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(29, 13);
+            this.name.Size = new System.Drawing.Size(33, 13);
             this.name.TabIndex = 0;
             this.name.Text = "Imię*:";
             // 
             // nameBox
             // 
-            this.nameBox.Location = new System.Drawing.Point(68, 6);
+            this.nameBox.Location = new System.Drawing.Point(75, 6);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(100, 20);
             this.nameBox.TabIndex = 1;
             // 
             // surnameBox
             // 
-            this.surnameBox.Location = new System.Drawing.Point(68, 32);
+            this.surnameBox.Location = new System.Drawing.Point(75, 32);
             this.surnameBox.Name = "surnameBox";
             this.surnameBox.Size = new System.Drawing.Size(100, 20);
             this.surnameBox.TabIndex = 3;
@@ -70,7 +70,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nazwisko*:";
             // 
@@ -79,13 +79,13 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Wiek*:"; 
+            this.label2.Text = "Wiek*:";
             // 
             // cityBox
             // 
-            this.cityBox.Location = new System.Drawing.Point(68, 84);
+            this.cityBox.Location = new System.Drawing.Point(75, 84);
             this.cityBox.Name = "cityBox";
             this.cityBox.Size = new System.Drawing.Size(100, 20);
             this.cityBox.TabIndex = 7;
@@ -95,13 +95,13 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 87);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Miasto*:";
             // 
             // phoneBox
             // 
-            this.phoneBox.Location = new System.Drawing.Point(68, 110);
+            this.phoneBox.Location = new System.Drawing.Point(75, 110);
             this.phoneBox.Name = "phoneBox";
             this.phoneBox.Size = new System.Drawing.Size(100, 20);
             this.phoneBox.TabIndex = 9;
@@ -119,7 +119,7 @@
             // 
             this.addPersonButton.Location = new System.Drawing.Point(12, 136);
             this.addPersonButton.Name = "addPersonButton";
-            this.addPersonButton.Size = new System.Drawing.Size(156, 20);
+            this.addPersonButton.Size = new System.Drawing.Size(163, 20);
             this.addPersonButton.TabIndex = 10;
             this.addPersonButton.Text = "Dodaj osobę";
             this.addPersonButton.UseVisualStyleBackColor = true;
@@ -127,7 +127,7 @@
             // 
             // ageNumeric
             // 
-            this.ageNumeric.Location = new System.Drawing.Point(68, 58);
+            this.ageNumeric.Location = new System.Drawing.Point(75, 58);
             this.ageNumeric.Name = "ageNumeric";
             this.ageNumeric.Size = new System.Drawing.Size(100, 20);
             this.ageNumeric.TabIndex = 11;
@@ -136,7 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(180, 162);
+            this.ClientSize = new System.Drawing.Size(187, 162);
             this.Controls.Add(this.ageNumeric);
             this.Controls.Add(this.addPersonButton);
             this.Controls.Add(this.phoneBox);

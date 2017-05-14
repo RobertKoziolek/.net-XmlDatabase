@@ -66,23 +66,42 @@ namespace XmlDatabase
             return element;
         }
 
-        public Person FindBy(string searchField, string searchValue)//TODO zmienic na kazde pole
+        public void Delete(Person person)
         {
-            Person person = new Person();
-            XmlDocument xdoc = new XmlDocument();
-            FileStream rfile = new FileStream(_databasePath, FileMode.Open);
-            xdoc.Load(rfile);
-            XmlNodeList list = xdoc.GetElementsByTagName("person");
+            FileStream fileStream = new FileStream(_databasePath, FileMode.Open);
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.Load(fileStream);
+            XmlNodeList list = xmlDocument.GetElementsByTagName("person");
             for (int i = 0; i < list.Count; i++)
             {
-                XmlElement cl = (XmlElement)xdoc.GetElementsByTagName("searchField")[i];
-                if (searchValue.Equals(cl.InnerText))
+                XmlElement nameElement = (XmlElement)xmlDocument.GetElementsByTagName("name")[i];
+                XmlElement surnameElement = (XmlElement)xmlDocument.GetElementsByTagName("surname")[i];
+
+                if (person.Name.Equals(nameElement.InnerText) && person.Surname.Equals(surnameElement.InnerText))
                 {
-                    XmlElement nameElement = (XmlElement)xdoc.GetElementsByTagName("name")[i];
-                    XmlElement surnameElement = (XmlElement)xdoc.GetElementsByTagName("surname")[i];
-                    XmlElement ageElement = (XmlElement)xdoc.GetElementsByTagName("age")[i];
-                    XmlElement cityElement = (XmlElement)xdoc.GetElementsByTagName("city")[i];
-                    XmlElement phoneElement = (XmlElement)xdoc.GetElementsByTagName("phone")[i];
+                    xmlDocument.DocumentElement.RemoveChild(list[i]);
+                }
+            }
+            fileStream.Close();
+            xmlDocument.Save(_databasePath);
+        }
+        public Person FindBy(string searchField, string searchValue) 
+        {
+            Person person = new Person();
+            XmlDocument xmlDocument = new XmlDocument();
+            FileStream fileStream = new FileStream(_databasePath, FileMode.Open);
+            xmlDocument.Load(fileStream);
+            XmlNodeList list = xmlDocument.GetElementsByTagName("person");
+            for (int i = 0; i < list.Count; i++)
+            {
+                XmlElement element = (XmlElement)xmlDocument.GetElementsByTagName(searchField)[i];
+                if (searchValue.Equals(element.InnerText))
+                {
+                    XmlElement nameElement = (XmlElement)xmlDocument.GetElementsByTagName("name")[i];
+                    XmlElement surnameElement = (XmlElement)xmlDocument.GetElementsByTagName("surname")[i];
+                    XmlElement ageElement = (XmlElement)xmlDocument.GetElementsByTagName("age")[i];
+                    XmlElement cityElement = (XmlElement)xmlDocument.GetElementsByTagName("city")[i];
+                    XmlElement phoneElement = (XmlElement)xmlDocument.GetElementsByTagName("phone")[i];
 
                     person.Name = nameElement.InnerText;
                     person.Surname = surnameElement.InnerText;
@@ -92,7 +111,7 @@ namespace XmlDatabase
                     break;
                 }
             }
-            rfile.Close();
+            fileStream.Close();
             return person;
         }
 
@@ -139,6 +158,6 @@ namespace XmlDatabase
             XmlDocument xdoc = new XmlDocument(); 
             xdoc.Load(_databasePath); 
             return xdoc.DocumentElement;
-        }
+        } 
     }
 }

@@ -32,6 +32,7 @@
             this.mainLabel = new System.Windows.Forms.Label();
             this.SchemaValidationButton = new System.Windows.Forms.Button();
             this.addPersonButton = new System.Windows.Forms.Button();
+            this.deletePerson = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -143,17 +144,28 @@
             // 
             this.addPersonButton.Location = new System.Drawing.Point(184, 93);
             this.addPersonButton.Name = "addPersonButton";
-            this.addPersonButton.Size = new System.Drawing.Size(114, 23);
+            this.addPersonButton.Size = new System.Drawing.Size(116, 27);
             this.addPersonButton.TabIndex = 9;
             this.addPersonButton.Text = "Dodaj osobę";
             this.addPersonButton.UseVisualStyleBackColor = true;
             this.addPersonButton.Click += new System.EventHandler(this.addPersonButton_Click);
+            // 
+            // deletePerson
+            // 
+            this.deletePerson.Location = new System.Drawing.Point(184, 126);
+            this.deletePerson.Name = "deletePerson";
+            this.deletePerson.Size = new System.Drawing.Size(116, 27);
+            this.deletePerson.TabIndex = 10;
+            this.deletePerson.Text = "Usuń osobę";
+            this.deletePerson.UseVisualStyleBackColor = true;
+            this.deletePerson.Click += new System.EventHandler(this.deletePerson_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(310, 338);
+            this.Controls.Add(this.deletePerson);
             this.Controls.Add(this.addPersonButton);
             this.Controls.Add(this.SchemaValidationButton);
             this.Controls.Add(this.mainLabel);
@@ -186,6 +198,7 @@
         private System.Windows.Forms.ToolStripMenuItem openXmlSchemaToolStripMenuItem1;
         private System.Windows.Forms.Button SchemaValidationButton;
         private System.Windows.Forms.Button addPersonButton;
+        private System.Windows.Forms.Button deletePerson;
     }
 }
 

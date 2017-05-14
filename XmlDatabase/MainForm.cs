@@ -96,5 +96,11 @@ namespace XmlDatabase
             AddPersonForm form = new AddPersonForm(this);
             form.Show();
         }
+
+        private void deletePerson_Click(object sender, EventArgs e)
+        { 
+            DeletePersonForm form = new DeletePersonForm(this);
+            form.Show();
+        }
     }
 }

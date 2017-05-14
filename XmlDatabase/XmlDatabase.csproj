@@ -51,6 +51,12 @@
     <Compile Include="AddPersonForm.Designer.cs">
       <DependentUpon>AddPersonForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeletePersonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeletePersonForm.Designer.cs">
+      <DependentUpon>DeletePersonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="XMLDatabase.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -63,6 +69,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddPersonForm.resx">
       <DependentUpon>AddPersonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeletePersonForm.resx">
+      <DependentUpon>DeletePersonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

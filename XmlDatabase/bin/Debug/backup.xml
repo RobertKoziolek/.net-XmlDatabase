@@ -1,31 +1,35 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE people[<!ELEMENT people (person*)>
-<!ELEMENT person (name,surname,age,city,phone)>
+<!ELEMENT person (name,surname,age,city,phone?)>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT surname (#PCDATA)>
 <!ELEMENT age (#PCDATA)>
 <!ELEMENT city (#PCDATA)>
 <!ELEMENT phone (#PCDATA)>]>
-<people >
-  <person >
+<people>
+  <person>
     <name>Andrzej</name>
     <surname>Gołota</surname>
     <age>49</age>
     <city>Warszawa</city>
     <phone>+48 908 424 321</phone>
   </person>
-  <person >
+  <person>
     <name>Stanisław</name>
     <surname>Tarkowski</surname>
     <age>14</age>
     <city>Kraków</city>
-    <phone>brak</phone>
   </person>
-  <person >
+  <person>
     <name>Maciej</name>
     <surname>Boryna</surname>
     <age>58</age>
     <city>Lipce</city>
-    <phone>brak</phone>
-  </person> 
+  </person>
+  <person>
+    <name>Anna</name>
+    <surname>Nowak</surname>
+    <age>22</age>
+    <city>Głogów</city>
+  </person>
 </people>

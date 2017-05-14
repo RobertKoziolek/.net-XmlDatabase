@@ -8,3 +8,4 @@ c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\ob
 c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.pdb
 C:\Users\Robert\Documents\Visual Studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.AddPersonForm.resources
 C:\Users\Robert\Documents\Visual Studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.MainForm.resources
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.DeletePersonForm.resources
