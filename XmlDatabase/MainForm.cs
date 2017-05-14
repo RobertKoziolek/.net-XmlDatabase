@@ -11,31 +11,32 @@ using System.Xml;
 
 namespace XmlDatabase
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        private Database database;
+        private XMLDatabase _xmlDatabase;
 
-        public Form1()
+        public XMLDatabase Database => _xmlDatabase;
+
+        public MainForm()
         {
-            InitializeComponent(); 
-//            Person person = new Person();
-//            person.Name = "dsa";
-//            person.Surname = "dsa";
-//            person.Age = 9;
-//            person.City = "dsa";
-//            person.Phone = "dsa"; 
-//            database.Add(person); 
-            LoadTreeViewFromXmlFile("nowa.xml");
-            database.SetXsdFilePath("people.xsd");
+            InitializeComponent();  
+            LoadXmlDatabase("nowa.xml");
+            _xmlDatabase.SetXsdFilePath("people.xsd");
+        }
+
+        private void LoadXmlDatabase(string filename)
+        {
+            _xmlDatabase = new XMLDatabase(filename);
+            LoadTreeViewFromDatabase(); 
+            LabelText = "Załadowano plik " + filename;
         }
          
-        private void LoadTreeViewFromXmlFile(string filename  )
+        public void LoadTreeViewFromDatabase( )
         { 
-            database = new Database(filename);
             treeView1.Nodes.Clear();
-            AddTreeViewChildNodes(treeView1.Nodes, database.GetRootElement());
-            mainLabel.Text = "Załadowano plik "+filename;
+            AddTreeViewChildNodes(treeView1.Nodes, _xmlDatabase.GetRootElement());
         }
+
         private void AddTreeViewChildNodes(TreeNodeCollection parent_nodes, XmlNode xml_node)
         {
             foreach (XmlNode child_node in xml_node.ChildNodes)
@@ -57,7 +58,7 @@ namespace XmlDatabase
             dlg.FileName = Application.StartupPath;
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                LoadTreeViewFromXmlFile(dlg.FileName );
+                LoadXmlDatabase(dlg.FileName );
             }
         }  
         private void openXmlSchemaToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -68,24 +69,33 @@ namespace XmlDatabase
             dlg.FileName = Application.StartupPath;
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                database.SetXsdFilePath(dlg.FileName);
-                mainLabel.Text = "Załadowano plik XML Schema";
+                _xmlDatabase.SetXsdFilePath(dlg.FileName);
+                LabelText = "Załadowano plik XML Schema";
             }
         }
 
-        private void validationButton_Click(object sender, EventArgs e)
+        private void DtdValidationButton_Click(object sender, EventArgs e)
+        { 
+            string result = _xmlDatabase.ValidateWithDtd(); 
+            LabelText = result;
+        }
+
+        private void SchemaValidationButton_Click(object sender, EventArgs e)
+        {  
+            string result = _xmlDatabase.ValidateWithXsd();
+            LabelText = result;
+        }
+
+
+        private string LabelText
+        { 
+            set { if (!string.IsNullOrEmpty(value)) mainLabel.Text = value; }
+        }
+
+        private void addPersonButton_Click(object sender, EventArgs e)
         {
-            if (DTDRadio.Checked)
-            {
-                string result = database.ValidateWithDtd();
-                if (!string.IsNullOrEmpty(result))
-                    mainLabel.Text = result;
-            }else if (XMLRadio.Checked)
-            {
-                string result = database.ValidateWithXsd();
-                if (!string.IsNullOrEmpty(result))
-                    mainLabel.Text = result;
-            }
+            AddPersonForm form = new AddPersonForm(this);
+            form.Show();
         }
     }
 }

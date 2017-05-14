@@ -6,7 +6,7 @@ using System.Xml.Schema;
 
 namespace XmlDatabase
 {
-    public class Database
+    public class XMLDatabase
     {
         private const string INNER_DTD = "<!ELEMENT people (person*)>\n<!ELEMENT person (name,surname,age,city,phone)>\n<!ELEMENT name (#PCDATA)>\n<!ELEMENT surname (#PCDATA)>\n<!ELEMENT age (#PCDATA)>\n<!ELEMENT city (#PCDATA)>\n<!ELEMENT phone (#PCDATA)>";
         private readonly string _databasePath;
@@ -14,7 +14,7 @@ namespace XmlDatabase
          
         public void SetXsdFilePath(string filepath) => _xsdFilePath = filepath;
 
-        public Database(string databasePath)
+        public XMLDatabase(string databasePath)
         {
             this._databasePath = databasePath; 
             if (File.Exists(databasePath) == false)
@@ -48,7 +48,10 @@ namespace XmlDatabase
             personElement.AppendChild(CreateElement("surname", person.Surname, xmlDocument));
             personElement.AppendChild(CreateElement("age", person.Age.ToString(), xmlDocument));
             personElement.AppendChild(CreateElement("city", person.City, xmlDocument));
-            personElement.AppendChild(CreateElement("phone", person.Phone, xmlDocument));
+            if (!string.IsNullOrWhiteSpace(person.Phone))
+            {
+                personElement.AppendChild(CreateElement("phone", person.Phone, xmlDocument));
+            }
 
             xmlDocument.DocumentElement.AppendChild(personElement);
             fileStream.Close();
@@ -63,7 +66,7 @@ namespace XmlDatabase
             return element;
         }
 
-        public Person FindByPhone(string phoneNumber)//TODO zmienic na kazde pole
+        public Person FindBy(string searchField, string searchValue)//TODO zmienic na kazde pole
         {
             Person person = new Person();
             XmlDocument xdoc = new XmlDocument();
@@ -72,8 +75,8 @@ namespace XmlDatabase
             XmlNodeList list = xdoc.GetElementsByTagName("person");
             for (int i = 0; i < list.Count; i++)
             {
-                XmlElement cl = (XmlElement)xdoc.GetElementsByTagName("phone")[i];
-                if (phoneNumber.Equals(cl.InnerText))
+                XmlElement cl = (XmlElement)xdoc.GetElementsByTagName("searchField")[i];
+                if (searchValue.Equals(cl.InnerText))
                 {
                     XmlElement nameElement = (XmlElement)xdoc.GetElementsByTagName("name")[i];
                     XmlElement surnameElement = (XmlElement)xdoc.GetElementsByTagName("surname")[i];
@@ -102,7 +105,7 @@ namespace XmlDatabase
         {
             if (string.IsNullOrEmpty(_xsdFilePath) || !File.Exists(_xsdFilePath))
             {
-                return "Nie załadowano pliku XML Schema";
+                return "Nie załadowano pliku Schema";
             }
             return Validate(ValidationType.Schema);
         }

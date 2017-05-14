@@ -6,4 +6,5 @@ c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\ob
 c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.csproj.GenerateResource.Cache
 c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.exe
 c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.pdb
-c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.Form1.resources
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.AddPersonForm.resources
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.MainForm.resources

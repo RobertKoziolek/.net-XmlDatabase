@@ -1,6 +1,6 @@
 ﻿namespace XmlDatabase
 {
-    partial class Form1
+    partial class MainForm
     { 
         private System.ComponentModel.IContainer components = null;
          
@@ -27,11 +27,11 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openXmlToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.DTDRadio = new System.Windows.Forms.RadioButton();
-            this.XMLRadio = new System.Windows.Forms.RadioButton();
-            this.validationButton = new System.Windows.Forms.Button();
-            this.mainLabel = new System.Windows.Forms.Label();
             this.openXmlSchemaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.DtdValidationButton = new System.Windows.Forms.Button();
+            this.mainLabel = new System.Windows.Forms.Label();
+            this.SchemaValidationButton = new System.Windows.Forms.Button();
+            this.addPersonButton = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -84,7 +84,7 @@
             this.fileToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(289, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(310, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -101,48 +101,8 @@
             // 
             this.openXmlToolStripMenuItem1.Name = "openXmlToolStripMenuItem1";
             this.openXmlToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
-            this.openXmlToolStripMenuItem1.Text = "Open xml...";
+            this.openXmlToolStripMenuItem1.Text = "Open XML...";
             this.openXmlToolStripMenuItem1.Click += new System.EventHandler(this.openXmlToolStripMenuItem1_Click);
-            // 
-            // DTDRadio
-            // 
-            this.DTDRadio.AutoSize = true;
-            this.DTDRadio.Checked = true;
-            this.DTDRadio.Location = new System.Drawing.Point(184, 27);
-            this.DTDRadio.Name = "DTDRadio";
-            this.DTDRadio.Size = new System.Drawing.Size(48, 17);
-            this.DTDRadio.TabIndex = 4;
-            this.DTDRadio.TabStop = true;
-            this.DTDRadio.Text = "DTD";
-            this.DTDRadio.UseVisualStyleBackColor = true;
-            // 
-            // XMLRadio
-            // 
-            this.XMLRadio.AutoSize = true;
-            this.XMLRadio.Location = new System.Drawing.Point(184, 50);
-            this.XMLRadio.Name = "XMLRadio";
-            this.XMLRadio.Size = new System.Drawing.Size(81, 17);
-            this.XMLRadio.TabIndex = 5;
-            this.XMLRadio.Text = "XmlSchema";
-            this.XMLRadio.UseVisualStyleBackColor = true;
-            // 
-            // validationButton
-            // 
-            this.validationButton.Location = new System.Drawing.Point(184, 76);
-            this.validationButton.Name = "validationButton";
-            this.validationButton.Size = new System.Drawing.Size(95, 27);
-            this.validationButton.TabIndex = 6;
-            this.validationButton.Text = "Sprawdź";
-            this.validationButton.UseVisualStyleBackColor = true;
-            this.validationButton.Click += new System.EventHandler(this.validationButton_Click);
-            // 
-            // mainLabel
-            // 
-            this.mainLabel.Location = new System.Drawing.Point(12, 239);
-            this.mainLabel.Name = "mainLabel";
-            this.mainLabel.Size = new System.Drawing.Size(267, 96);
-            this.mainLabel.TabIndex = 7;
-            this.mainLabel.Text = "Placeholder";
             // 
             // openXmlSchemaToolStripMenuItem1
             // 
@@ -151,19 +111,57 @@
             this.openXmlSchemaToolStripMenuItem1.Text = "Open XmlSchema...";
             this.openXmlSchemaToolStripMenuItem1.Click += new System.EventHandler(this.openXmlSchemaToolStripMenuItem1_Click);
             // 
-            // Form1
+            // DtdValidationButton
+            // 
+            this.DtdValidationButton.Location = new System.Drawing.Point(184, 27);
+            this.DtdValidationButton.Name = "DtdValidationButton";
+            this.DtdValidationButton.Size = new System.Drawing.Size(116, 27);
+            this.DtdValidationButton.TabIndex = 6;
+            this.DtdValidationButton.Text = "Sprawdź DTD";
+            this.DtdValidationButton.UseVisualStyleBackColor = true;
+            this.DtdValidationButton.Click += new System.EventHandler(this.DtdValidationButton_Click);
+            // 
+            // mainLabel
+            // 
+            this.mainLabel.Location = new System.Drawing.Point(12, 239);
+            this.mainLabel.Name = "mainLabel";
+            this.mainLabel.Size = new System.Drawing.Size(267, 96);
+            this.mainLabel.TabIndex = 7;
+            this.mainLabel.Text = " ";
+            // 
+            // SchemaValidationButton
+            // 
+            this.SchemaValidationButton.Location = new System.Drawing.Point(184, 60);
+            this.SchemaValidationButton.Name = "SchemaValidationButton";
+            this.SchemaValidationButton.Size = new System.Drawing.Size(116, 27);
+            this.SchemaValidationButton.TabIndex = 8;
+            this.SchemaValidationButton.Text = "Sprawdź Schema";
+            this.SchemaValidationButton.UseVisualStyleBackColor = true;
+            this.SchemaValidationButton.Click += new System.EventHandler(this.SchemaValidationButton_Click);
+            // 
+            // addPersonButton
+            // 
+            this.addPersonButton.Location = new System.Drawing.Point(184, 93);
+            this.addPersonButton.Name = "addPersonButton";
+            this.addPersonButton.Size = new System.Drawing.Size(114, 23);
+            this.addPersonButton.TabIndex = 9;
+            this.addPersonButton.Text = "Dodaj osobę";
+            this.addPersonButton.UseVisualStyleBackColor = true;
+            this.addPersonButton.Click += new System.EventHandler(this.addPersonButton_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(289, 344);
+            this.ClientSize = new System.Drawing.Size(310, 338);
+            this.Controls.Add(this.addPersonButton);
+            this.Controls.Add(this.SchemaValidationButton);
             this.Controls.Add(this.mainLabel);
-            this.Controls.Add(this.validationButton);
-            this.Controls.Add(this.XMLRadio);
-            this.Controls.Add(this.DTDRadio);
+            this.Controls.Add(this.DtdValidationButton);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.treeView1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.contextMenuStrip1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -183,11 +181,11 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem openXmlToolStripMenuItem1;
-        private System.Windows.Forms.RadioButton DTDRadio;
-        private System.Windows.Forms.RadioButton XMLRadio;
-        private System.Windows.Forms.Button validationButton;
+        private System.Windows.Forms.Button DtdValidationButton;
         private System.Windows.Forms.Label mainLabel;
         private System.Windows.Forms.ToolStripMenuItem openXmlSchemaToolStripMenuItem1;
+        private System.Windows.Forms.Button SchemaValidationButton;
+        private System.Windows.Forms.Button addPersonButton;
     }
 }
 
