@@ -14,11 +14,7 @@
         }
 
         #region Kod generowany przez Projektanta formularzy systemu Windows
-
-        /// <summary>
-        /// Wymagana metoda obsługi projektanta — nie należy modyfikować 
-        /// zawartość tej metody z edytorem kodu.
-        /// </summary>
+         
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
@@ -31,11 +27,11 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openXmlToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.DTDRadio = new System.Windows.Forms.RadioButton();
+            this.XMLRadio = new System.Windows.Forms.RadioButton();
+            this.validationButton = new System.Windows.Forms.Button();
+            this.mainLabel = new System.Windows.Forms.Label();
             this.openXmlSchemaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.openDTDToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -44,9 +40,8 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(-1, 27);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(179, 234);
+            this.treeView1.Size = new System.Drawing.Size(179, 199);
             this.treeView1.TabIndex = 0;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // contextMenuStrip1
             // 
@@ -89,7 +84,7 @@
             this.fileToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(284, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(289, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -97,8 +92,7 @@
             // 
             this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openXmlToolStripMenuItem1,
-            this.openXmlSchemaToolStripMenuItem1,
-            this.openDTDToolStripMenuItem1});
+            this.openXmlSchemaToolStripMenuItem1});
             this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
             this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem1.Text = "File";
@@ -110,6 +104,46 @@
             this.openXmlToolStripMenuItem1.Text = "Open xml...";
             this.openXmlToolStripMenuItem1.Click += new System.EventHandler(this.openXmlToolStripMenuItem1_Click);
             // 
+            // DTDRadio
+            // 
+            this.DTDRadio.AutoSize = true;
+            this.DTDRadio.Checked = true;
+            this.DTDRadio.Location = new System.Drawing.Point(184, 27);
+            this.DTDRadio.Name = "DTDRadio";
+            this.DTDRadio.Size = new System.Drawing.Size(48, 17);
+            this.DTDRadio.TabIndex = 4;
+            this.DTDRadio.TabStop = true;
+            this.DTDRadio.Text = "DTD";
+            this.DTDRadio.UseVisualStyleBackColor = true;
+            // 
+            // XMLRadio
+            // 
+            this.XMLRadio.AutoSize = true;
+            this.XMLRadio.Location = new System.Drawing.Point(184, 50);
+            this.XMLRadio.Name = "XMLRadio";
+            this.XMLRadio.Size = new System.Drawing.Size(81, 17);
+            this.XMLRadio.TabIndex = 5;
+            this.XMLRadio.Text = "XmlSchema";
+            this.XMLRadio.UseVisualStyleBackColor = true;
+            // 
+            // validationButton
+            // 
+            this.validationButton.Location = new System.Drawing.Point(184, 76);
+            this.validationButton.Name = "validationButton";
+            this.validationButton.Size = new System.Drawing.Size(95, 27);
+            this.validationButton.TabIndex = 6;
+            this.validationButton.Text = "Sprawdź";
+            this.validationButton.UseVisualStyleBackColor = true;
+            this.validationButton.Click += new System.EventHandler(this.validationButton_Click);
+            // 
+            // mainLabel
+            // 
+            this.mainLabel.Location = new System.Drawing.Point(12, 239);
+            this.mainLabel.Name = "mainLabel";
+            this.mainLabel.Size = new System.Drawing.Size(267, 96);
+            this.mainLabel.TabIndex = 7;
+            this.mainLabel.Text = "Placeholder";
+            // 
             // openXmlSchemaToolStripMenuItem1
             // 
             this.openXmlSchemaToolStripMenuItem1.Name = "openXmlSchemaToolStripMenuItem1";
@@ -117,57 +151,19 @@
             this.openXmlSchemaToolStripMenuItem1.Text = "Open XmlSchema...";
             this.openXmlSchemaToolStripMenuItem1.Click += new System.EventHandler(this.openXmlSchemaToolStripMenuItem1_Click);
             // 
-            // openDTDToolStripMenuItem1
-            // 
-            this.openDTDToolStripMenuItem1.Name = "openDTDToolStripMenuItem1";
-            this.openDTDToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
-            this.openDTDToolStripMenuItem1.Text = "Open DTD...";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(184, 27);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(87, 17);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "No validation";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(184, 50);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(48, 17);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.Text = "DTD";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(184, 73);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(81, 17);
-            this.radioButton3.TabIndex = 5;
-            this.radioButton3.Text = "XmlSchema";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.ClientSize = new System.Drawing.Size(289, 344);
+            this.Controls.Add(this.mainLabel);
+            this.Controls.Add(this.validationButton);
+            this.Controls.Add(this.XMLRadio);
+            this.Controls.Add(this.DTDRadio);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.treeView1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1"; 
+            this.Name = "Form1";
             this.contextMenuStrip1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -187,11 +183,11 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem openXmlToolStripMenuItem1;
+        private System.Windows.Forms.RadioButton DTDRadio;
+        private System.Windows.Forms.RadioButton XMLRadio;
+        private System.Windows.Forms.Button validationButton;
+        private System.Windows.Forms.Label mainLabel;
         private System.Windows.Forms.ToolStripMenuItem openXmlSchemaToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem openDTDToolStripMenuItem1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
     }
 }
 

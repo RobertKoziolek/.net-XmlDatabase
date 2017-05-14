@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE people[<!ELEMENT people (person*)>
+<!ELEMENT person (name,surname,age,city,phone)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT surname (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>]>
+<people >
+  <person >
+    <name>dsa</name>
+    <surname>dsa</surname>
+    <age>9</age>
+    <city>dsa</city>
+    <phone>dsa</phone>
+  </person>
+  <person >
+    <name>dsa</name>
+    <surname>dsa</surname>
+    <age>9</age>
+    <city>dsa</city>
+    <phone>dsa</phone>
+  </person>
+  <person >
+    <name>dsa</name>
+    <surname>dsa</surname>
+    <age>9</age>
+    <city>dsa</city>
+    <phone>dsa</phone>
+  </person>
+  <person >
+    <name>dsa</name>
+    <surname>dsa</surname>
+    <age>9</age>
+    <city>dsa</city>
+    <phone>dsa</phone>
+  </person>
+</people>
