@@ -26,7 +26,8 @@ namespace XmlDatabase
         private void InitializeDatabase()
         { 
             XmlDocument doc = new XmlDocument();
-            XmlDeclaration xmlDeclaration = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
+            XmlDeclaration xmlDeclaration;
+            xmlDeclaration = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
             XmlElement root = doc.DocumentElement;
             doc.InsertBefore(xmlDeclaration, root);
             XmlDocumentType doctype;
@@ -42,26 +43,26 @@ namespace XmlDatabase
             XmlDocument xmlDocument = new XmlDocument();
             FileStream fileStream = new FileStream(_databasePath, FileMode.Open);
             xmlDocument.Load(fileStream);
-            XmlElement personElement = xmlDocument.CreateElement("person");
+            XmlElement element = xmlDocument.CreateElement("person");
 
-            personElement.AppendChild(CreateElement("name", person.Name, xmlDocument));
-            personElement.AppendChild(CreateElement("surname", person.Surname, xmlDocument));
-            personElement.AppendChild(CreateElement("age", person.Age.ToString(), xmlDocument));
-            personElement.AppendChild(CreateElement("city", person.City, xmlDocument));
+            element.AppendChild(CreateElement("name", person.Name, xmlDocument));
+            element.AppendChild(CreateElement("surname", person.Surname, xmlDocument));
+            element.AppendChild(CreateElement("age", person.Age.ToString(), xmlDocument));
+            element.AppendChild(CreateElement("city", person.City, xmlDocument));
             if (!string.IsNullOrWhiteSpace(person.Phone))
             {
-                personElement.AppendChild(CreateElement("phone", person.Phone, xmlDocument));
+                element.AppendChild(CreateElement("phone", person.Phone, xmlDocument));
             }
 
-            xmlDocument.DocumentElement.AppendChild(personElement);
+            xmlDocument.DocumentElement.AppendChild(element);
             fileStream.Close();
             xmlDocument.Save(_databasePath);
         }
 
-        private XmlElement CreateElement(string elementName, string elementValue, XmlDocument xmlDocument )
+        private XmlElement CreateElement(string type, string value, XmlDocument doc )
         {
-            XmlElement element = xmlDocument.CreateElement(elementName);
-            XmlText text = xmlDocument.CreateTextNode(elementValue);
+            XmlElement element = doc.CreateElement(type);
+            XmlText text = doc.CreateTextNode(value);
             element.AppendChild(text); 
             return element;
         }
@@ -131,6 +132,10 @@ namespace XmlDatabase
 
         private string Validate(ValidationType validationType)
         {
+            if (validationType != ValidationType.DTD && validationType != ValidationType.Schema)
+            {
+                throw new ArgumentException();
+            }
             StringBuilder xmlValMsg = new StringBuilder();
 
             XmlTextReader reader = new XmlTextReader(_databasePath);

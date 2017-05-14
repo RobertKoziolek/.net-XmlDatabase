@@ -4,8 +4,8 @@
     <title>The Confidence Man</title>
     <price>11.99</price>
   </book>
-  <cd:cd>
+  <book>
     <title>Americana</title> 
     <price>16.95</price>
-  </cd:cd>
+  </book>
 </bookstore>

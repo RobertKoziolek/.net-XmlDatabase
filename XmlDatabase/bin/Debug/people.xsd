@@ -1,36 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <xs:schema id="people" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" >
-
-<xs:element name="people">
-
-<xs:complexType>
-
-<xs:sequence maxOccurs="unbounded">
-
-<xs:element name="person">
-
-<xs:complexType>
-
-<xs:sequence>
-
-<xs:element name="name" type="xs:string"  />
-
-<xs:element name="surname" type="xs:string" />
-<xs:element name="age" type="xs:integer" />
-<xs:element name="city" type="xs:string" />
-<xs:element name="phone" type="xs:string"  minOccurs="0" />
-
-</xs:sequence>
-
-</xs:complexType>
-
-</xs:element>
-
-</xs:sequence>
-
-</xs:complexType>
-
-</xs:element>
-
+ <xs:element name="people">
+  <xs:complexType>
+   <xs:sequence maxOccurs="unbounded">
+    <xs:element name="person"  minOccurs="0" >
+     <xs:complexType>
+      <xs:sequence>
+       <xs:element name="name" type="xs:string"  />
+       <xs:element name="surname" type="xs:string" />
+       <xs:element name="age" type="xs:integer" />
+       <xs:element name="city" type="xs:string" />
+       <xs:element name="phone" type="xs:string"  minOccurs="0" />
+      </xs:sequence>
+     </xs:complexType>
+    </xs:element>
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
 </xs:schema>

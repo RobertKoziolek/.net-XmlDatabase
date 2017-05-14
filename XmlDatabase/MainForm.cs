@@ -25,7 +25,7 @@ namespace XmlDatabase
         public MainForm()
         {
             InitializeComponent();  
-            LoadXmlDatabase("nowa.xml");
+            LoadXmlDatabase("nowa2.xml");
             _xmlDatabase.SetXsdFilePath("people.xsd");
         }
 
@@ -35,9 +35,9 @@ namespace XmlDatabase
             LoadTreeViewFromDatabase(); 
             LabelText = "Załadowano plik " + filename;
         }
-         
-        public void LoadTreeViewFromDatabase( )
-        { 
+
+        public void LoadTreeViewFromDatabase()
+        {
             treeView1.Nodes.Clear();
             AddTreeViewChildNodes(treeView1.Nodes, _xmlDatabase.GetRootElement());
         }
@@ -48,37 +48,11 @@ namespace XmlDatabase
             {
                 var isTextNode = child_node.NodeType == XmlNodeType.Text;
                 var treeNodeName = isTextNode ? child_node.Value : child_node.Name;
-                TreeNode newNode = parent_nodes.Add(treeNodeName); 
-                AddTreeViewChildNodes(newNode.Nodes, child_node); 
+                TreeNode newNode = parent_nodes.Add(treeNodeName);
+                AddTreeViewChildNodes(newNode.Nodes, child_node);
                 if (newNode.Nodes.Count == 0) newNode.EnsureVisible();
             }
-        } 
-
-
-        private void openXmlToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Title = "Open XML Document";
-            dlg.Filter = "XML Files (*.xml)|*.xml";
-            dlg.FileName = Application.StartupPath;
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                LoadXmlDatabase(dlg.FileName );
-            }
-        }  
-        private void openXmlSchemaToolStripMenuItem1_Click(object sender, EventArgs e)
-        { 
-            OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Title = "Open XML Schema Document";
-            dlg.Filter = "XML Schema Files (*.xsd)|*.xsd";
-            dlg.FileName = Application.StartupPath;
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                _xmlDatabase.SetXsdFilePath(dlg.FileName);
-                LabelText = "Załadowano plik XML Schema";
-            }
         }
-
         private void DtdValidationButton_Click(object sender, EventArgs e)
         { 
             string result = _xmlDatabase.ValidateWithDtd(); 
@@ -101,6 +75,31 @@ namespace XmlDatabase
         { 
             DeletePersonForm form = new DeletePersonForm(this);
             form.Show();
+        }
+
+        private void openXmlButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Title = "Open XML Document";
+            dlg.Filter = "XML Files (*.xml)|*.xml";
+            dlg.FileName = Application.StartupPath;
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                LoadXmlDatabase(dlg.FileName);
+            }
+        }
+
+        private void openXsdFileButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Title = "Open XML Schema Document";
+            dlg.Filter = "XML Schema Files (*.xsd)|*.xsd";
+            dlg.FileName = Application.StartupPath;
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                _xmlDatabase.SetXsdFilePath(dlg.FileName);
+                LabelText = "Załadowano plik XML Schema";
+            }
         }
     }
 }
