@@ -17,6 +17,11 @@ namespace XmlDatabase
 
         public XMLDatabase Database => _xmlDatabase;
 
+        public string LabelText
+        {
+            set { if (!string.IsNullOrEmpty(value)) mainLabel.Text = value; }
+        }
+
         public MainForm()
         {
             InitializeComponent();  
@@ -84,13 +89,7 @@ namespace XmlDatabase
         {  
             string result = _xmlDatabase.ValidateWithXsd();
             LabelText = result;
-        }
-
-
-        private string LabelText
-        { 
-            set { if (!string.IsNullOrEmpty(value)) mainLabel.Text = value; }
-        }
+        } 
 
         private void addPersonButton_Click(object sender, EventArgs e)
         {

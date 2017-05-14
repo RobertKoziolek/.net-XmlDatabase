@@ -32,6 +32,8 @@ namespace XmlDatabase
                 person.Phone = phoneBox.Text; 
                 _parentForm.Database.Add(person);
                 _parentForm.LoadTreeViewFromDatabase();
+                _parentForm.LabelText = "Dodano " + person.Name + " " + person.Surname + " do bazy";
+                this.Close();
             }
         }
 
