@@ -6,7 +6,7 @@
 
 <xs:complexType>
 
-<xs:choice maxOccurs="unbounded">
+<xs:sequence maxOccurs="unbounded">
 
 <xs:element name="person">
 
@@ -19,7 +19,7 @@
 <xs:element name="surname" type="xs:string" />
 <xs:element name="age" type="xs:integer" />
 <xs:element name="city" type="xs:string" />
-<xs:element name="phone" type="xs:string"  />
+<xs:element name="phone" type="xs:string"  minOccurs="0" />
 
 </xs:sequence>
 
@@ -27,7 +27,7 @@
 
 </xs:element>
 
-</xs:choice>
+</xs:sequence>
 
 </xs:complexType>
 

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE people[<!ELEMENT people (person*)>
-<!ELEMENT person (name,surname,age,city,phone?)>
+<!ELEMENT person (name,surname,age,city,phone)>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT surname (#PCDATA)>
 <!ELEMENT age (#PCDATA)>
@@ -25,6 +25,7 @@
     <name>Maciej</name>
     <surname>Boryna</surname>
     <age>58</age>
-    <city>Lipce</city> 
+    <city>Lipce</city>
+    <phone>brak</phone>
   </person> 
 </people>

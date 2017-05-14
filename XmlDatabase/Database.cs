@@ -94,28 +94,18 @@ namespace XmlDatabase
         }
 
         public string ValidateWithDtd( )
-        {  
-            XmlReaderSettings settings = new XmlReaderSettings();
-            settings.ProhibitDtd = false;
-            settings.ValidationType = ValidationType.DTD;
+        { 
             StringBuilder xmlValMsg = new StringBuilder();
-            settings.ValidationEventHandler += new ValidationEventHandler(delegate (object sender, ValidationEventArgs args)
-            { 
-                xmlValMsg.AppendLine( args.Message);
+
+            XmlTextReader reader = new XmlTextReader(_databasePath);
+            XmlValidatingReader validator = new XmlValidatingReader(reader);
+            validator.ValidationType = ValidationType.DTD; 
+            validator.ValidationEventHandler += new ValidationEventHandler(delegate (object sender, ValidationEventArgs args)
+            {
+                xmlValMsg.AppendLine(args.Message);
             });
-            try
-            {
-                XmlReader validator = XmlReader.Create(File.Open(_databasePath, FileMode.Open), settings);
-                while (validator.Read())
-                {
-                }
-                validator.Close();
-            }
-            catch (System.IO.IOException e)
-            {
-                return  null;
-            }
-            string result = xmlValMsg.ToString();
+            while (validator.Read()) ;
+            string result = xmlValMsg.ToString(); 
             if (string.IsNullOrEmpty(result))
             {
                 result = "XML jest poprawny z DTD";
@@ -131,17 +121,17 @@ namespace XmlDatabase
             } 
             StringBuilder xmlValMsg = new StringBuilder();
             
-            XmlTextReader r = new XmlTextReader(_databasePath);
-            XmlValidatingReader settings = new XmlValidatingReader(r);
-            settings.ValidationType = ValidationType.Schema;
-            XmlSchemaCollection c;
-            c = settings.Schemas;
-            c.Add(null, _xsdFilePath);
-            settings.ValidationEventHandler += new ValidationEventHandler(delegate (object sender, ValidationEventArgs args)
+            XmlTextReader reader = new XmlTextReader(_databasePath);
+            XmlValidatingReader validator = new XmlValidatingReader(reader);
+            validator.ValidationType = ValidationType.Schema;
+            XmlSchemaCollection schemas;
+            schemas = validator.Schemas;
+            schemas.Add(null, _xsdFilePath);
+            validator.ValidationEventHandler += new ValidationEventHandler(delegate (object sender, ValidationEventArgs args)
             {
                 xmlValMsg.AppendLine(args.Message);
             });
-            while (settings.Read()) ;
+            while (validator.Read()) ;
             string result = xmlValMsg.ToString();
             if (string.IsNullOrEmpty(result))
             {
