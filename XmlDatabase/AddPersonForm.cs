@@ -48,6 +48,6 @@ namespace XmlDatabase
                 }
             };
             return true;
-        } 
+        }
     }
 }

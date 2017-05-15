@@ -9,3 +9,14 @@ c:\users\robert\documents\visual studio 2017\Projects\XmlDatabase\XmlDatabase\ob
 C:\Users\Robert\Documents\Visual Studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.AddPersonForm.resources
 C:\Users\Robert\Documents\Visual Studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.MainForm.resources
 C:\Users\Robert\Documents\Visual Studio 2017\Projects\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.DeletePersonForm.resources
+E:\34INF-SP\B\MK\lab3\XmlDatabase\XmlDatabase\bin\Debug\XmlDatabase.exe.config
+E:\34INF-SP\B\MK\lab3\XmlDatabase\XmlDatabase\bin\Debug\XmlDatabase.exe
+E:\34INF-SP\B\MK\lab3\XmlDatabase\XmlDatabase\bin\Debug\XmlDatabase.pdb
+E:\34INF-SP\B\MK\lab3\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.csprojResolveAssemblyReference.cache
+E:\34INF-SP\B\MK\lab3\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.AddPersonForm.resources
+E:\34INF-SP\B\MK\lab3\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.DeletePersonForm.resources
+E:\34INF-SP\B\MK\lab3\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.MainForm.resources
+E:\34INF-SP\B\MK\lab3\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.Properties.Resources.resources
+E:\34INF-SP\B\MK\lab3\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.csproj.GenerateResource.Cache
+E:\34INF-SP\B\MK\lab3\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.exe
+E:\34INF-SP\B\MK\lab3\XmlDatabase\XmlDatabase\obj\Debug\XmlDatabase.pdb

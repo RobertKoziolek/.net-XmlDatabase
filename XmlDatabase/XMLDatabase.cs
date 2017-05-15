@@ -155,6 +155,7 @@ namespace XmlDatabase
             {
                 result = "Plik XML jest poprawny z "+validationType ;
             }
+            validator.Close();
             return result;
         }
 

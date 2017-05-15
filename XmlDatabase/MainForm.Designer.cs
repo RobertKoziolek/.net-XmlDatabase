@@ -27,10 +27,10 @@
             this.DtdValidationButton = new System.Windows.Forms.Button();
             this.mainLabel = new System.Windows.Forms.Label();
             this.SchemaValidationButton = new System.Windows.Forms.Button();
-            this.addPersonButton = new System.Windows.Forms.Button();
-            this.deletePerson = new System.Windows.Forms.Button();
             this.openXsdFileButton = new System.Windows.Forms.Button();
             this.openXmlButton = new System.Windows.Forms.Button();
+            this.deletePerson = new System.Windows.Forms.Button();
+            this.addPersonButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // treeView1
@@ -67,7 +67,7 @@
             // 
             // DtdValidationButton
             // 
-            this.DtdValidationButton.Location = new System.Drawing.Point(197, 78);
+            this.DtdValidationButton.Location = new System.Drawing.Point(197, 144);
             this.DtdValidationButton.Name = "DtdValidationButton";
             this.DtdValidationButton.Size = new System.Drawing.Size(116, 27);
             this.DtdValidationButton.TabIndex = 6;
@@ -85,33 +85,13 @@
             // 
             // SchemaValidationButton
             // 
-            this.SchemaValidationButton.Location = new System.Drawing.Point(197, 111);
+            this.SchemaValidationButton.Location = new System.Drawing.Point(197, 177);
             this.SchemaValidationButton.Name = "SchemaValidationButton";
             this.SchemaValidationButton.Size = new System.Drawing.Size(116, 27);
             this.SchemaValidationButton.TabIndex = 8;
             this.SchemaValidationButton.Text = "Sprawdź Schema";
             this.SchemaValidationButton.UseVisualStyleBackColor = true;
             this.SchemaValidationButton.Click += new System.EventHandler(this.SchemaValidationButton_Click);
-            // 
-            // addPersonButton
-            // 
-            this.addPersonButton.Location = new System.Drawing.Point(197, 144);
-            this.addPersonButton.Name = "addPersonButton";
-            this.addPersonButton.Size = new System.Drawing.Size(116, 27);
-            this.addPersonButton.TabIndex = 9;
-            this.addPersonButton.Text = "Dodaj osobę";
-            this.addPersonButton.UseVisualStyleBackColor = true;
-            this.addPersonButton.Click += new System.EventHandler(this.addPersonButton_Click);
-            // 
-            // deletePerson
-            // 
-            this.deletePerson.Location = new System.Drawing.Point(197, 177);
-            this.deletePerson.Name = "deletePerson";
-            this.deletePerson.Size = new System.Drawing.Size(116, 27);
-            this.deletePerson.TabIndex = 10;
-            this.deletePerson.Text = "Usuń osobę";
-            this.deletePerson.UseVisualStyleBackColor = true;
-            this.deletePerson.Click += new System.EventHandler(this.deletePerson_Click);
             // 
             // openXsdFileButton
             // 
@@ -133,19 +113,40 @@
             this.openXmlButton.UseVisualStyleBackColor = true;
             this.openXmlButton.Click += new System.EventHandler(this.openXmlButton_Click);
             // 
+            // deletePerson
+            // 
+            this.deletePerson.Location = new System.Drawing.Point(197, 111);
+            this.deletePerson.Name = "deletePerson";
+            this.deletePerson.Size = new System.Drawing.Size(116, 27);
+            this.deletePerson.TabIndex = 14;
+            this.deletePerson.Text = "Usuń osobę";
+            this.deletePerson.UseVisualStyleBackColor = true;
+            this.deletePerson.Click += new System.EventHandler(this.deletePerson_Click);
+            // 
+            // addPersonButton
+            // 
+            this.addPersonButton.Location = new System.Drawing.Point(197, 78);
+            this.addPersonButton.Name = "addPersonButton";
+            this.addPersonButton.Size = new System.Drawing.Size(116, 27);
+            this.addPersonButton.TabIndex = 13;
+            this.addPersonButton.Text = "Dodaj osobę";
+            this.addPersonButton.UseVisualStyleBackColor = true;
+            this.addPersonButton.Click += new System.EventHandler(this.addPersonButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(322, 290);
-            this.Controls.Add(this.openXsdFileButton);
-            this.Controls.Add(this.openXmlButton);
             this.Controls.Add(this.deletePerson);
             this.Controls.Add(this.addPersonButton);
+            this.Controls.Add(this.openXsdFileButton);
+            this.Controls.Add(this.openXmlButton);
             this.Controls.Add(this.SchemaValidationButton);
             this.Controls.Add(this.mainLabel);
             this.Controls.Add(this.DtdValidationButton);
             this.Controls.Add(this.treeView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.ResumeLayout(false);
 
@@ -162,10 +163,10 @@
         private System.Windows.Forms.Button DtdValidationButton;
         private System.Windows.Forms.Label mainLabel;
         private System.Windows.Forms.Button SchemaValidationButton;
-        private System.Windows.Forms.Button addPersonButton;
-        private System.Windows.Forms.Button deletePerson;
         private System.Windows.Forms.Button openXsdFileButton;
         private System.Windows.Forms.Button openXmlButton;
+        private System.Windows.Forms.Button deletePerson;
+        private System.Windows.Forms.Button addPersonButton;
     }
 }
 

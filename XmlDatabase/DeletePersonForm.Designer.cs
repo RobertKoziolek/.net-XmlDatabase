@@ -87,8 +87,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nameBox);
             this.Controls.Add(this.name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "DeletePersonForm";
-            this.Text = "DeletePersonForm";
+            this.Text = "DeletePersonForm"; 
             this.ResumeLayout(false);
             this.PerformLayout();
 
